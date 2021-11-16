@@ -53,7 +53,7 @@ class PizzeriaDetailSerializer(serializers.ModelSerializer):
             'state',
             'zip_code',
             'website',
-            'phone_number',
+            # 'phone_number',
             'description',
             'logo_image',
             'email',
