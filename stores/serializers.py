@@ -1,5 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
+from rest_framework import filters
 from rest_framework.utils import model_meta
 from .models import Pizzeria
 
@@ -23,7 +24,11 @@ class PizzeriaListSerializer(serializers.ModelSerializer):
             'city',
             'zip_code',
 
+
+
         ]
+
+   
 
 
 class PizzeriaDetailSerializer(serializers.ModelSerializer):

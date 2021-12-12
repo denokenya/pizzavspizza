@@ -13,6 +13,12 @@ class PizzeriaListAPIView(generics.ListAPIView):
     queryset = Pizzeria.objects.all()
     serializer_class = PizzeriaListSerializer
 
+    def get_queryset(self):
+
+        nairobi = Pizzeria.objects.filter(city="Nairobi")
+
+        return nairobi
+
 
 class PizzeriaRetrieveAPIView(generics.RetrieveAPIView):
     """DetailAPIView for all pizzeria"""
