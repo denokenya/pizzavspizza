@@ -1,7 +1,9 @@
 from django.db.models import fields
 from rest_framework import serializers
 from rest_framework import filters
+from rest_framework.reverse import reverse
 from rest_framework.utils import model_meta
+
 from .models import Pizzeria
 
 
@@ -16,6 +18,8 @@ class PizzeriaListSerializer(serializers.ModelSerializer):
 
     )
     """
+    absolute_url = serializers.SerializerMethodField()
+
     class Meta:
         model = Pizzeria
         fields = [
@@ -28,7 +32,8 @@ class PizzeriaListSerializer(serializers.ModelSerializer):
 
         ]
 
-   
+        def get_absolute_url(self, obj):
+            return reverse('pizzeria_detail', args=(obj.pk,))
 
 
 class PizzeriaDetailSerializer(serializers.ModelSerializer):
